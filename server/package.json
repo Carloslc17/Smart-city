@@ -1,0 +1,30 @@
+{
+  "name": "smart-city-management-server",
+  "version": "0.1.0",
+  "description": "API REST de Smart City Management",
+  "private": true,
+  "type": "module",
+  "main": "src/server.js",
+  "engines": {
+    "node": ">=20.6.0"
+  },
+  "scripts": {
+    "dev": "node --watch --env-file=.env src/server.js",
+    "start": "node src/server.js"
+  },
+  "keywords": [
+    "smart-city",
+    "mern",
+    "express",
+    "mongodb"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "http-errors": "^1.6.3",
+    "mongoose": "^8.9.0",
+    "morgan": "^1.10.0"
+  }
+}
