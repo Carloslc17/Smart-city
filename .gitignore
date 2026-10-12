@@ -74,6 +74,7 @@ public/uploads/
 # ===========================
 # Base de datos local (MongoDB)
 # ===========================
+data
 data/db/
 *.rdb
 dump/
