@@ -4,6 +4,7 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 
 import { env } from './config/env.js';
+import { isDatabaseConnected } from './config/database.js';
 import { notFound, errorHandler } from './api/middlewares/errorHandler.js';
 
 const app = express();
@@ -18,8 +19,10 @@ if (env.nodeEnv !== 'test') {
 
 // --- Rutas ---
 app.get('/api/health', (_req, res) => {
-  res.status(200).json({
-    status: 'ok',
+  const databaseConnected = isDatabaseConnected();
+  res.status(databaseConnected ? 200 : 503).json({
+    status: databaseConnected ? 'ok' : 'unavailable',
+    database: databaseConnected ? 'connected' : 'disconnected',
     uptime: process.uptime(),
     timestamp: new Date().toISOString(),
   });
