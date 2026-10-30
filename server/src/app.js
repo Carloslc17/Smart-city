@@ -6,6 +6,7 @@ import morgan from 'morgan';
 import { env } from './config/env.js';
 import { notFound, errorHandler } from './api/middlewares/errorHandler.js';
 import distritosRouter from './api/routes/distritos.js';
+import authRouter from './api/routes/auth_routes.js'
 
 const app = express();
 
@@ -19,6 +20,7 @@ if (env.nodeEnv !== 'test') {
 
 // --- Rutas ---
 app.use('/api/distritos', distritosRouter);
+app.use('/api/', authRouter);
 
 app.get('/api/health', (_req, res) => {
   res.status(200).json({
