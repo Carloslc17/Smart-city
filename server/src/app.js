@@ -20,7 +20,7 @@ if (env.nodeEnv !== 'test') {
 
 // --- Rutas ---
 app.use('/api/distritos', distritosRouter);
-app.use('/api/', authRouter);
+app.use('/api', authRouter);
 
 app.get('/api/health', (_req, res) => {
   res.status(200).json({
