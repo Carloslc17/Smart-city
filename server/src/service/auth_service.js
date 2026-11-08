@@ -48,10 +48,20 @@ export async function register(credentials = {}) {
 
 // Iniciar sesion
 export async function login(credentials = {}) {
-    validateCredentials(credentials);
-    const { username, password } = credentials;
-    username = username.trim();
-    const user = await userService.findByUsername(username);
+    if (!credentials || typeof credentials !== 'object' || Array.isArray(credentials)) {
+        throw new AppError('Debes enviar los datos de autenticacion', 400);
+    }
+
+    const { username, email, password } = credentials;
+    const normalizedEmail = typeof email === 'string' ? email.trim().toLowerCase() : '';
+    const normalizedUsername = typeof username === 'string' ? username.trim() : '';
+    if ((!normalizedEmail && !normalizedUsername) || typeof password !== 'string' || !password) {
+        throw new AppError('Debes indicar un email o nombre de usuario y una contrasena', 400);
+    }
+
+    const user = normalizedEmail
+        ? await userService.findByEmail(normalizedEmail)
+        : await userService.findByUsername(normalizedUsername);
     if (!user || !(await user.comparePassword(password))) {
         throw new AppError('Nombre de usuario o contrasena incorrectos', 401);
     }

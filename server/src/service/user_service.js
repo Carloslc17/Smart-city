@@ -7,6 +7,9 @@ export const findById = (id) => User.findById(id);
 // Buscar usuario por nombre de usuario
 export const findByUsername = (username) => User.findOne({ username });
 
+// Buscar usuario por email
+export const findByEmail = (email) => User.findOne({ email });
+
 // Crear usuario. Validar existencia.
 export const createUser = async (userData) => {
     try {
