@@ -1,6 +1,5 @@
 import { Router } from 'express';
-import Distrito from '../../models/Distrito.js';
-import { getDistritos, getDistrito } from '../../service/gestorDistritos.js';
+import { getDistritos, getDistrito } from '../controllers/recursos_controller.js';
 
 const router = Router();
 
