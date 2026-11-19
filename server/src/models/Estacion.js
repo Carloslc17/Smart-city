@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import PointSchema from './_point.js';
 const { Schema } = mongoose;
 
-const atributosSchema = new Schema.Types.Mixed({
+const atributosSchema = new Schema({
     idelem : {type : Number},
     cod_cent : {type : String},
 }, {
