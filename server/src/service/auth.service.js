@@ -53,8 +53,10 @@ export async function login(credentials = {}) {
     }
 
     const { username, email, password } = credentials;
-    const normalizedEmail = typeof email === 'string' ? email.trim().toLowerCase() : '';
-    const normalizedUsername = typeof username === 'string' ? username.trim() : '';
+    const normalizedEmail = typeof email === 'string' ? email.trim().toLowerCase() : ''; // Comprobar si el email es string y convertirlo a minusculas
+    const normalizedUsername = typeof username === 'string' ? username.trim() : ''; // Comprobar si username es string y eliminar espacios en blanco
+
+    // Comprobar existencia de email/username y que la contraseña sea un string no vacio
     if ((!normalizedEmail && !normalizedUsername) || typeof password !== 'string' || !password) {
         throw new AppError('Debes indicar un email o nombre de usuario y una contrasena', 400);
     }
