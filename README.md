@@ -64,9 +64,25 @@ smart-city-management/
 1. **Clonar el repositorio**
 
    ```bash
-   git clone https://github.com/<tu-usuario>/smart-city-management.git
-   cd smart-city-management
+   git clone https://github.com/Carloslc17/Smart-city.git
+   cd Smart-city
    ```
+
+## API de datos masivos
+
+Las consultas de accidentalidad, calidad del aire y tráfico están paginadas para
+evitar devolver colecciones completas. Todas aceptan `page` (por defecto `1`)
+y `limit` (por defecto `50`, máximo `100`), y responden con `data` y
+`pagination` (`page`, `limit` y `hasMore`).
+
+- `GET /api/accidentes`: filtros opcionales `desde`, `hasta` (fechas ISO,
+  inclusivas), `distrito`, `distrito_cod`, `tipo_accidente` y `gravedad_max`.
+- `GET /api/aire`: filtros opcionales `desde`, `hasta`, `estacion_id`,
+  `magnitud` y `magnitud_cod`.
+- `GET /api/trafico`: filtros opcionales `desde`, `hasta`, `idelem` y
+  `tipo_elem`.
+
+Ejemplo: `GET /api/trafico?desde=2051-01-01&hasta=2051-01-31&idelem=1001&limit=25`.
 
 
 ## 🤝 Contribuir

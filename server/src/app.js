@@ -10,6 +10,9 @@ import estacionesRouter from './api/routes/estaciones.js';
 import contenedoresRouter from './api/routes/contenedores.js';
 import puntosTransporteRouter from './api/routes/puntos_transporte.js';
 import authRouter from './api/routes/auth_routes.js'
+import accidentesRouter from './api/routes/accidentes.js';
+import aireRouter from './api/routes/aire.js';
+import traficoRouter from './api/routes/trafico.js';
 
 const app = express();
 
@@ -26,6 +29,9 @@ app.use('/api/distritos', distritosRouter);
 app.use('/api/estaciones', estacionesRouter);
 app.use('/api/contenedores', contenedoresRouter);
 app.use('/api/puntos_transporte', puntosTransporteRouter);
+app.use('/api/accidentes', accidentesRouter);
+app.use('/api/aire', aireRouter);
+app.use('/api/trafico', traficoRouter);
 app.use('/api/auth', authRouter);
 
 app.get('/api/health', (_req, res) => {
