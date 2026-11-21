@@ -1,7 +1,7 @@
 import AppError from '../../utils/AppError.js';
-import * as accidentesService from '../../service/gestorAccidentes.js';
-import * as aireService from '../../service/gestorAire.js';
-import * as traficoService from '../../service/gestorTrafico.js';
+import * as accidentesService from '../../service/accidentes.service.js';
+import * as aireService from '../../service/aire.service.js';
+import * as traficoService from '../../service/trafico.service.js';
 
 const DEFAULT_LIMIT = 50;
 const MAX_LIMIT = 100;

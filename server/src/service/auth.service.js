@@ -1,6 +1,6 @@
 import AppError from '../utils/AppError.js';
 import { signToken, verifyToken } from '../utils/token.js';
-import * as userService from './user_service.js';
+import * as userService from './user.service.js';
 
 // Validar credenciales. Comprobar formato correcto de usuario y contrasena.
 function validateCredentials(credentials, includeEmail = false) {
