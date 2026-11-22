@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getCalidadAire } from '../controllers/datos_urbanos_controller.js';
+import { getCalidadAire } from '../controllers/datosUrbanos.controller.js';
 
 const router = Router();
 

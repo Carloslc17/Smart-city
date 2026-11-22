@@ -3,6 +3,7 @@ import * as authService from '../../service/auth_service.js';
 
 export async function requireAuth(req, _res, next) {
     const authorization = req.get('authorization');
+    // Comprobar si el encabezado de autorización está presente y tiene el formato correcto
     const match = authorization?.match(/^Bearer\s+(\S+)$/i);
 
     if (!match) {
