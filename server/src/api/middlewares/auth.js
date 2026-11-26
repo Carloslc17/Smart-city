@@ -1,5 +1,5 @@
 import AppError from '../../utils/AppError.js';
-import * as authService from '../../service/auth_service.js';
+import * as authService from '../../service/auth.service.js';
 
 export async function requireAuth(req, _res, next) {
     const authorization = req.get('authorization');
