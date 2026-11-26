@@ -1,4 +1,4 @@
-import * as authService from '../../service/auth_service.js';
+import * as authService from '../../service/auth.service.js';
 
 function publicUser(user) {
     return {

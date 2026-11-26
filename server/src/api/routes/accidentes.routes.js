@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getAccidentes } from '../controllers/datos_urbanos_controller.js';
+import { getAccidentes } from '../controllers/datosUrbanos.controller.js';
 
 const router = Router();
 

@@ -1,12 +1,14 @@
 import AppError from '../../utils/AppError.js';
-import * as accidentesService from '../../service/gestorAccidentes.js';
-import * as aireService from '../../service/gestorAire.js';
-import * as traficoService from '../../service/gestorTrafico.js';
+import * as accidentesService from '../../service/accidentes.service.js';
+import * as aireService from '../../service/aire.service.js';
+import * as traficoService from '../../service/trafico.service.js';
 
-const DEFAULT_LIMIT = 50;
-const MAX_LIMIT = 100;
+// Limites de paginacion
+const DEFAULT_LIMIT = 50; 
+const MAX_LIMIT = 100;     
 const MAX_PAGE = 1_000_000;
 
+// Convierte y valida texto (String)
 function getString(query, name) {
     const value = query[name];
     if (value === undefined) return undefined;
@@ -16,6 +18,7 @@ function getString(query, name) {
     return value.trim();
 }
 
+// Convierte y valida enteros
 function getInteger(query, name, fallback, maximum = Number.MAX_SAFE_INTEGER) {
     const value = getString(query, name);
     if (value === undefined && fallback !== undefined) return fallback;
@@ -27,6 +30,7 @@ function getInteger(query, name, fallback, maximum = Number.MAX_SAFE_INTEGER) {
     return parsed;
 }
 
+// Coniverte y valida enteros opcionales
 function getOptionalInteger(query, name) {
     const value = getString(query, name);
     if (value === undefined) return undefined;
@@ -38,6 +42,7 @@ function getOptionalInteger(query, name) {
     return parsed;
 }
 
+// Convierte y valida fechas en formato ISO (YYYY-MM-DD)
 function getDate(query, name) {
     const value = getString(query, name);
     if (value === undefined) return undefined;
@@ -59,6 +64,9 @@ function getDate(query, name) {
     return new Date(value);
 }
 
+/* Controla filtros compartidos por trafico, aire y accidentes
+*  Filtros de tiempo: Intervalo de fecha inferior a fecha superior
+*/
 function getSearchOptions(query) {
     const desde = getDate(query, 'desde');
     const hasta = getDate(query, 'hasta');
@@ -73,6 +81,7 @@ function getSearchOptions(query) {
     };
 }
 
+// Filtros accidentes: distrito, codigo distrito, tipo de accidente y gravedad maxima
 export const getAccidentes = async (req, res) => {
     const options = getSearchOptions(req.query);
     options.filters.distrito = getString(req.query, 'distrito');
@@ -82,6 +91,7 @@ export const getAccidentes = async (req, res) => {
     res.json(await accidentesService.buscar(options.filters, options.page, options.limit));
 };
 
+// Filtros de calidad del aire: estacion, magnitud e id de magnitud
 export const getCalidadAire = async (req, res) => {
     const options = getSearchOptions(req.query);
     options.filters.estacion_id = getString(req.query, 'estacion_id');
@@ -90,6 +100,7 @@ export const getCalidadAire = async (req, res) => {
     res.json(await aireService.buscar(options.filters, options.page, options.limit));
 };
 
+// Filtros de trafico: id y carretera
 export const getTrafico = async (req, res) => {
     const options = getSearchOptions(req.query);
     options.filters.idelem = getOptionalInteger(req.query, 'idelem');

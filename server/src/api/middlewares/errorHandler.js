@@ -6,6 +6,8 @@ export function notFound(req, _res, next) {
   error.status = 404;
   next(error);
 }
+
+// Manejador de errores
 export function errorHandler(err, _req, res, _next) {
   const status = err.status ?? 500;
 

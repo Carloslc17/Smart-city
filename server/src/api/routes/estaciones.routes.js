@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getEstaciones, getEstacion } from '../controllers/recursos_controller.js';
+import { getEstaciones, getEstacion } from '../controllers/recursos.controller.js';
 
 const router = Router();
 

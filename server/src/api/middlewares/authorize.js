@@ -1,5 +1,6 @@
 import AppError from '../../utils/AppError.js';
 
+// Comprobar que el usuario tenga el rol para poder acceder a un recurso (Error 403)
 export function authorize(...roles) {
     return (req, _res, next) => {
         if (!req.user) {

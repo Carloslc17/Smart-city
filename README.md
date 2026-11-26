@@ -87,6 +87,9 @@ Ejemplo: `GET /api/trafico?desde=2051-01-01&hasta=2051-01-31&idelem=1001&limit=2
 
 ## 🤝 Contribuir
 
+Antes de crear codigo nuevo o refactorizar nombres, consulta
+[Normas de nombres y estilo de codigo](CODING_STANDARDS.md).
+
 1. Haz un fork del proyecto.
 2. Crea una rama para tu cambio: `git checkout -b feature/nombre-de-la-mejora`
 3. Haz commit de tus cambios: `git commit -m "feat: descripción del cambio"`

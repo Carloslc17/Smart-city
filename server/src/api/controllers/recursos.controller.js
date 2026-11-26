@@ -1,7 +1,7 @@
-import * as distritosService from '../../service/gestorDistritos.js';
-import * as estacionesService from '../../service/gestorEstaciones.js';
-import * as contenedoresService from '../../service/gestorContenedores.js';
-import * as puntosTransporteService from '../../service/gestorPuntosTransporte.js';
+import * as distritosService from '../../service/distritos.service.js';
+import * as estacionesService from '../../service/estaciones.service.js';
+import * as contenedoresService from '../../service/contenedores.service.js';
+import * as puntosTransporteService from '../../service/transporte.service.js';
 
 export const getDistritos = async (_req, res) => {
     res.json(await distritosService.getAll());

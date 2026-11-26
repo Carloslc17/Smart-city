@@ -5,14 +5,14 @@ import morgan from 'morgan';
 
 import { env } from './config/env.js';
 import { notFound, errorHandler } from './api/middlewares/errorHandler.js';
-import distritosRouter from './api/routes/distritos.js';
-import estacionesRouter from './api/routes/estaciones.js';
-import contenedoresRouter from './api/routes/contenedores.js';
-import puntosTransporteRouter from './api/routes/puntos_transporte.js';
-import authRouter from './api/routes/auth_routes.js'
-import accidentesRouter from './api/routes/accidentes.js';
-import aireRouter from './api/routes/aire.js';
-import traficoRouter from './api/routes/trafico.js';
+import distritosRouter from './api/routes/distritos.routes.js';
+import estacionesRouter from './api/routes/estaciones.routes.js';
+import contenedoresRouter from './api/routes/contenedores.routes.js';
+import puntosTransporteRouter from './api/routes/transporte.routes.js';
+import authRouter from './api/routes/auth.routes.js'
+import accidentesRouter from './api/routes/accidentes.routes.js';
+import aireRouter from './api/routes/aire.routes.js';
+import traficoRouter from './api/routes/trafico.routes.js';
 
 const app = express();
 
