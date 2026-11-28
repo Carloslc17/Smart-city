@@ -20,6 +20,78 @@ a {
   transition: color 160ms ease, text-decoration-color 160ms ease;
 }
 
+.eyebrow {
+  margin-bottom: 0.65rem;
+  color: var(--color-primary);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.chartHint,
+.tableSection {
+  margin-top: 1.5rem;
+  padding: clamp(1rem, 2.5vw, 1.5rem);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: rgb(4 15 24 / 0.55);
+}
+
+.chartHint h3,
+.tableHeading h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.chartHint p {
+  margin-top: 0.6rem;
+}
+
+.tableHeading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.tableHeading span {
+  color: var(--color-muted);
+  font-size: 0.8rem;
+  text-align: right;
+}
+
+.metricField {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.metricField label {
+  color: #a9c5d5;
+  font-size: 0.73rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.metricField select {
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid #1b4056;
+  border-radius: 0.6rem;
+  color: var(--color-text);
+  background: rgb(4 15 24 / 0.72);
+  font: inherit;
+}
+
+.metricField select:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
 a:hover {
   color: #7beaff;
   text-decoration-color: currentColor;
@@ -29,6 +101,15 @@ a:focus-visible,
 button:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+  .tableHeading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .tableHeading span { text-align: left; }
 }
 
 @media (prefers-reduced-motion: reduce) {

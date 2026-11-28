@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import Button from "../Button/Button";
 import styles from "./AppLayout.module.css";
@@ -8,7 +8,15 @@ export default function AppLayout() {
   return (
     <div className={styles.shell}>
       <header className={styles.navbar}>
-        <strong>Smart City</strong>
+        <div className={styles.brandGroup}>
+          <strong>Smart City</strong>
+          <nav className={styles.navigation} aria-label="Navegación principal">
+            <NavLink to="/" end>Resumen</NavLink>
+            <NavLink to="/trafico">Tráfico</NavLink>
+            <NavLink to="/aire">Aire</NavLink>
+            <NavLink to="/seguridad-vial">Seguridad vial</NavLink>
+          </nav>
+        </div>
         <div className={styles.right}>
           <span>{user.username}</span>
           <Button variant="ghost" onClick={logout}>Salir</Button>

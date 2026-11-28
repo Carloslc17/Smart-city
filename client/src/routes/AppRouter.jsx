@@ -5,6 +5,9 @@ import AppLayout from "../components/AppLayout/AppLayout";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import Dashboard from "../pages/Dashboard/Dashboard";
+import Traffic from "../pages/Traffic/Traffic";
+import AirQuality from "../pages/AirQuality/AirQuality";
+import Accidents from "../pages/Accidents/Accidents";
 import NotFound from "../pages/NotFound/NotFound";
 
 export default function AppRouter() {
@@ -20,6 +23,9 @@ export default function AppRouter() {
       <Route element={<ProtectedRoute />}>
         <Route element={<AppLayout />}>
           <Route path="/" element={<Dashboard />} />
+          <Route path="/trafico" element={<Traffic />} />
+          <Route path="/aire" element={<AirQuality />} />
+          <Route path="/seguridad-vial" element={<Accidents />} />
         </Route>
       </Route>
 
